@@ -1,6 +1,6 @@
 package io.jordy.torvalds.lotto.domain
 
-class Lotto(val value: List<LottoNumber>) {
+class WinningLotto(val value: List<LottoNumber>) {
 
   init {
     require(value.size == VALID_SIZE) {
@@ -11,20 +11,20 @@ class Lotto(val value: List<LottoNumber>) {
     }
   }
 
-  fun verify(winningLotto: Lotto): Rank {
+  fun verify(winningLotto: WinningLotto): Rank {
     val matchCount = value.filter { winningLotto.value.contains(it) }.size
     return Rank.valueOf(matchCount)
   }
 
   companion object {
-    fun create(numberPicker: NumberPicker): Lotto {
+    fun create(numberPicker: NumberPicker): WinningLotto {
       val lottoNumbers = numberPicker.pick()
         .map { LottoNumber(it) }
         .toList()
-      return Lotto(lottoNumbers)
+      return WinningLotto(lottoNumbers)
     }
 
-    fun getPurchasableQuantity(money: Money): Int = money.divide(LOTTO_PRICE).toInt()
+    fun getPurchasableQuantity(money: Money): Int = (money.value / LOTTO_PRICE).toInt()
 
     const val LOTTO_PRICE = 1000
     const val VALID_SIZE = 6

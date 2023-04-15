@@ -3,6 +3,8 @@ package io.jordy.torvalds.lotto.domain
 import io.jordy.torvalds.lotto.domain.LottoNumber.Companion.MAX_LOTTO_NUMBER
 import io.jordy.torvalds.lotto.domain.LottoNumber.Companion.MIN_LOTTO_NUMBER
 
+
+// 구조 다시 고민해보기!
 class RandomNumberPicker : NumberPicker {
 
   override fun pick(): List<Int> {

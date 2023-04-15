@@ -13,7 +13,8 @@ fun main() {
 fun purchaseLotto() {
   println("구입금액을 입력해 주세요.")
 
-  val purchaseAmount = readLine()!!
+  // controller -> view ! 흐르게
+  val purchaseAmount = readLine()!! // readln
   val purchaseLottoRequest = PurchaseLottoRequest(purchaseAmount)
   val result = lottoController.purchaseLotto(purchaseLottoRequest)
 

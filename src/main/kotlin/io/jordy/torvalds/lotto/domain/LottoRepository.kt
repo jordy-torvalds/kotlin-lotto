@@ -1,6 +1,4 @@
-package io.jordy.torvalds.lotto.repository
-
-import io.jordy.torvalds.lotto.domain.Lotto
+package io.jordy.torvalds.lotto.domain
 
 class LottoRepository(private var lottos: List<Lotto>) {
 

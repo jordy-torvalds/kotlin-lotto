@@ -30,7 +30,7 @@ internal class LottoNumberTest {
   fun `무작위의 번호를 가진 로또를 만든다`() {
     val lotto = Lotto.create(RandomNumberPicker())
 
-    assertEquals(VALID_SIZE, lotto.getValue.distinct().size)
+    assertEquals(VALID_SIZE, lotto.value.distinct().size)
   }
 
   companion object {

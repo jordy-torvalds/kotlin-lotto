@@ -2,9 +2,9 @@ package io.jordy.torvalds.lotto.service
 
 import io.jordy.torvalds.lotto.domain.Lotto
 import io.jordy.torvalds.lotto.domain.Lotto.Companion.LOTTO_PRICE
+import io.jordy.torvalds.lotto.domain.LottoRepository
 import io.jordy.torvalds.lotto.domain.Money
 import io.jordy.torvalds.lotto.fixture.domain.MockNumberPickerFixture
-import io.jordy.torvalds.lotto.repository.LottoRepository
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 

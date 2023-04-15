@@ -1,10 +1,10 @@
 package io.jordy.torvalds.lotto.service
 
 import io.jordy.torvalds.lotto.domain.Lotto
+import io.jordy.torvalds.lotto.domain.LottoRepository
 import io.jordy.torvalds.lotto.domain.Money
 import io.jordy.torvalds.lotto.domain.NumberPicker
 import io.jordy.torvalds.lotto.domain.WinningStatistics
-import io.jordy.torvalds.lotto.repository.LottoRepository
 import io.jordy.torvalds.lotto.service.dto.LottoDto
 import io.jordy.torvalds.lotto.service.dto.RankDto
 import io.jordy.torvalds.lotto.service.dto.WinningStatisticsDto

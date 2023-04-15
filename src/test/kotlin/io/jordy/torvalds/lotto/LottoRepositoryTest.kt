@@ -2,8 +2,8 @@ package io.jordy.torvalds.lotto
 
 import io.jordy.torvalds.lotto.domain.Lotto
 import io.jordy.torvalds.lotto.domain.LottoNumber
+import io.jordy.torvalds.lotto.domain.LottoRepository
 import io.jordy.torvalds.lotto.domain.RandomNumberPicker
-import io.jordy.torvalds.lotto.repository.LottoRepository
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 

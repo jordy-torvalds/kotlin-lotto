@@ -2,6 +2,7 @@ package io.jordy.torvalds.lotto.domain
 
 import io.jordy.torvalds.lotto.domain.Lotto.Companion.VALID_SIZE
 
+// 테스트로 옮기기
 class MockNumberPicker(private val numbers: List<List<Int>>) : NumberPicker {
 
   private var index = 0

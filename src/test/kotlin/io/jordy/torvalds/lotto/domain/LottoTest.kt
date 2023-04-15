@@ -26,7 +26,7 @@ internal class LottoTest {
   fun `번호 추첨기를 통해 로또를 만든다`() {
     val lotto = Lotto.create(RandomNumberPicker())
 
-    assertEquals(Lotto.VALID_SIZE, lotto.getValue.size)
+    assertEquals(Lotto.VALID_SIZE, lotto.value.size)
   }
 
   @MethodSource("선택된 번호가 6개가 이어야 한다")

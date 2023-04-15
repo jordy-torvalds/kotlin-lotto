@@ -4,5 +4,5 @@ import io.jordy.torvalds.lotto.domain.Lotto
 
 data class LottoDto(private val lotto: Lotto) {
 
-  val numbers = lotto.getValue.map { it.number }.toList()
+  val numbers = lotto.value.map { it.number }.toList()
 }
