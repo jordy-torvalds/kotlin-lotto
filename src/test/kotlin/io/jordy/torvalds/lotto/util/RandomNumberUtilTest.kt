@@ -1,6 +1,6 @@
 package io.jordy.torvalds.lotto.util
 
-import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.RepeatedTest
 
 internal class RandomNumberUtilTest {
@@ -9,6 +9,5 @@ internal class RandomNumberUtilTest {
   fun generateRandomNumber() {
     val randomNumber = RandomNumberUtil.generateRandomNumber()
     assertTrue(randomNumber in 1..45)
-    println(randomNumber)
   }
 }

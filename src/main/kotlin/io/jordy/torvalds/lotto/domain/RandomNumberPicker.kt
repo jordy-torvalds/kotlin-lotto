@@ -1,5 +1,8 @@
 package io.jordy.torvalds.lotto.domain
 
+import io.jordy.torvalds.lotto.domain.LottoNumber.Companion.MAX_LOTTO_NUMBER
+import io.jordy.torvalds.lotto.domain.LottoNumber.Companion.MIN_LOTTO_NUMBER
+
 class RandomNumberPicker : NumberPicker {
 
   override fun pick(): List<Int> {
@@ -7,10 +10,9 @@ class RandomNumberPicker : NumberPicker {
   }
 
   companion object {
-    @JvmStatic
+
     fun retrieveRandomNumbers(): List<Int> {
-      return (1..45).shuffled().take(Lotto.VALID_SIZE)
+      return (MIN_LOTTO_NUMBER..MAX_LOTTO_NUMBER).shuffled().take(Lotto.VALID_SIZE)
     }
   }
-
 }

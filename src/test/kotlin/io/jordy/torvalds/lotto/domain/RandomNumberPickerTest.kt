@@ -1,6 +1,6 @@
 package io.jordy.torvalds.lotto.domain
 
-import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.RepeatedTest
 
 internal class RandomNumberPickerTest {
@@ -14,5 +14,4 @@ internal class RandomNumberPickerTest {
     assertEquals(Lotto.VALID_SIZE, result.distinct().size)
     println(result)
   }
-
 }

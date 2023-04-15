@@ -4,6 +4,8 @@ import io.jordy.torvalds.lotto.domain.Lotto.Companion.VALID_SIZE
 
 class MockNumberPicker(private val numbers: List<List<Int>>) : NumberPicker {
 
+  private var index = 0
+
   init {
     numbers.forEach {
       require(it.size == VALID_SIZE) {
@@ -12,9 +14,13 @@ class MockNumberPicker(private val numbers: List<List<Int>>) : NumberPicker {
     }
   }
 
-  private var index = 0
-
   override fun pick(): List<Int> {
     return numbers[index++]
+  }
+
+  companion object {
+    fun create(numbers: List<Int>): MockNumberPicker {
+      return MockNumberPicker(listOf(numbers.toList()))
+    }
   }
 }

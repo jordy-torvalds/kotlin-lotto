@@ -2,7 +2,8 @@ package io.jordy.torvalds.lotto.domain
 
 import io.jordy.torvalds.lotto.domain.Lotto.Companion.VALID_SIZE
 import io.jordy.torvalds.lotto.domain.LottoNumber.Companion.MAX_LOTTO_NUMBER
-import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertThrows
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.CsvSource
@@ -36,5 +37,4 @@ internal class LottoNumberTest {
     @JvmStatic
     fun `1에서 45까지의 정수`() = IntArray(MAX_LOTTO_NUMBER) { it + 1 }
   }
-
 }

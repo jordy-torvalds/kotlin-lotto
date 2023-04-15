@@ -10,11 +10,10 @@ object MockNumberPickerFixture {
     retrieveRandomNumbers(),
     retrieveRandomNumbers(),
     retrieveRandomNumbers(),
-    retrieveRandomNumbers()
+    retrieveRandomNumbers(),
   )
 
   fun create(numbers: List<List<Int>> = mockNumbers): NumberPicker {
     return MockNumberPicker(numbers)
   }
-
 }
