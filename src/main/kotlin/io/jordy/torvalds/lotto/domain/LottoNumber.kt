@@ -1,6 +1,5 @@
 package io.jordy.torvalds.lotto.domain
 
-
 @JvmInline
 value class LottoNumber(val number: Int) {
 

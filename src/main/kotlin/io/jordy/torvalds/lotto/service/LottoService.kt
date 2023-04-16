@@ -4,6 +4,7 @@ import io.jordy.torvalds.lotto.domain.Lotto
 import io.jordy.torvalds.lotto.domain.LottoRepository
 import io.jordy.torvalds.lotto.domain.Money
 import io.jordy.torvalds.lotto.domain.NumberPicker
+import io.jordy.torvalds.lotto.domain.WinningLotto
 import io.jordy.torvalds.lotto.domain.WinningStatistics
 import io.jordy.torvalds.lotto.service.dto.LottoDto
 import io.jordy.torvalds.lotto.service.dto.RankDto
@@ -28,13 +29,12 @@ class LottoService(
     return result.map { LottoDto(it) }.toList()
   }
 
-  fun verifyTheWinningLotto(winningLotto: Lotto): List<RankDto> {
-    val ranks = lottoRepository.get().map { it.verify(winningLotto) }
+  fun verifyTheWinningLotto(winningLotto: WinningLotto): List<RankDto> {
+    val ranks = lottoRepository.get().map { winningLotto.verify(it) }
     return ranks.map { RankDto(it) }.toList()
   }
 
   fun createWinningStatistics(ranks: List<RankDto>): WinningStatisticsDto {
-    val purchasedCount = lottoRepository.get().size
     val winningStatistic = WinningStatistics(ranks.map { it.toRank() })
     return WinningStatisticsDto.of(winningStatistic)
   }

@@ -1,7 +1,8 @@
 package io.jordy.torvalds.lotto.domain
 
-class WinningLotto(val value: List<LottoNumber>) {
+import io.jordy.torvalds.lotto.domain.Lotto.Companion.VALID_SIZE
 
+class WinningLotto(val value: List<LottoNumber>) {
   init {
     require(value.size == VALID_SIZE) {
       "로또 번호는 ${VALID_SIZE}개만 가능합니다."
@@ -11,22 +12,15 @@ class WinningLotto(val value: List<LottoNumber>) {
     }
   }
 
-  fun verify(winningLotto: WinningLotto): Rank {
-    val matchCount = value.filter { winningLotto.value.contains(it) }.size
+  fun verify(lotto: Lotto): Rank {
+    val matchCount = value.filter { lotto.contains(it) }.size
     return Rank.valueOf(matchCount)
   }
 
   companion object {
-    fun create(numberPicker: NumberPicker): WinningLotto {
-      val lottoNumbers = numberPicker.pick()
-        .map { LottoNumber(it) }
-        .toList()
-      return WinningLotto(lottoNumbers)
+    fun create(winningLottoNumbers: List<Int>): WinningLotto {
+      val parsedLottoNumbers = winningLottoNumbers.map { LottoNumber(it) }
+      return WinningLotto(parsedLottoNumbers)
     }
-
-    fun getPurchasableQuantity(money: Money): Int = (money.value / LOTTO_PRICE).toInt()
-
-    const val LOTTO_PRICE = 1000
-    const val VALID_SIZE = 6
   }
 }

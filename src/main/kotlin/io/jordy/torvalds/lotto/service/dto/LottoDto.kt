@@ -2,7 +2,6 @@ package io.jordy.torvalds.lotto.service.dto
 
 import io.jordy.torvalds.lotto.domain.Lotto
 
-data class LottoDto(private val lotto: Lotto) {
-
-  val numbers = lotto.value.map { it.number }.toList()
+data class LottoDto(val value: List<Int>) {
+  constructor(lotto: Lotto) : this(lotto.value.map { it.number })
 }

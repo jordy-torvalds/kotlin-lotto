@@ -9,7 +9,7 @@ object Configuration {
 
   private val lottoRepository = LottoRepository()
   private val numberPicker = RandomNumberPicker()
-  private val lottoService = LottoService(lottoRepository, numberPicker)
+  val lottoService = LottoService(lottoRepository, numberPicker)
 
   val lottoController = LottoController(lottoService)
 }

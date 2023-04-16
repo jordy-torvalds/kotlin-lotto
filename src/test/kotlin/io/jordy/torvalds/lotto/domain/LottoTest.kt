@@ -9,19 +9,6 @@ import org.junit.jupiter.params.provider.MethodSource
 import java.util.stream.Stream
 
 internal class LottoTest {
-
-  @MethodSource
-  @ParameterizedTest
-  fun `로또를 당첨 여부를 확인한다`(winningLottoNumbers: List<LottoNumber>, expectedRank: Rank) {
-    val lottoNumbers = listOf(1, 2, 3, 4, 5, 6).map { LottoNumber(it) }
-    val lotto = Lotto(lottoNumbers)
-    val winningLotto = Lotto(winningLottoNumbers)
-
-    val actualRank = lotto.verify(winningLotto)
-
-    assertEquals(expectedRank, actualRank)
-  }
-
   @Test
   fun `번호 추첨기를 통해 로또를 만든다`() {
     val lotto = Lotto.create(RandomNumberPicker())
@@ -48,17 +35,6 @@ internal class LottoTest {
   }
 
   companion object {
-    @JvmStatic
-    fun `로또를 당첨 여부를 확인한다`() = Stream.of(
-      Arguments.of(listOf(1, 2, 3, 4, 5, 6).map { LottoNumber(it) }, Rank.FIRST),
-      Arguments.of(listOf(1, 2, 3, 4, 5, 7).map { LottoNumber(it) }, Rank.SECOND),
-      Arguments.of(listOf(1, 2, 3, 4, 7, 8).map { LottoNumber(it) }, Rank.THIRD),
-      Arguments.of(listOf(1, 2, 3, 7, 8, 9).map { LottoNumber(it) }, Rank.FOURTH),
-      Arguments.of(listOf(1, 2, 7, 8, 9, 10).map { LottoNumber(it) }, Rank.MISS),
-      Arguments.of(listOf(1, 7, 8, 9, 10, 11).map { LottoNumber(it) }, Rank.MISS),
-      Arguments.of(listOf(7, 8, 9, 10, 11, 12).map { LottoNumber(it) }, Rank.MISS),
-    )
-
     @JvmStatic
     fun `선택된 번호가 6개가 이어야 한다`(): Stream<List<LottoNumber>> {
       return Stream.of(

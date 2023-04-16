@@ -3,7 +3,6 @@ package io.jordy.torvalds.lotto.service.dto
 import io.jordy.torvalds.lotto.domain.WinningStatistics
 
 class WinningStatisticsDto(val resultByRank: Map<String, WinningStatisticDto>) {
-
   companion object {
     fun of(winningStatistics: WinningStatistics): WinningStatisticsDto {
       val resultByRank = winningStatistics.resultByRank
